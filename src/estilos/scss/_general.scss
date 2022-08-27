@@ -1,0 +1,12 @@
+@import "_variables.scss";
+* {
+  margin: 0;
+  padding: 0;
+  color: black;
+  }
+h1{
+  color: rgb(179, 104, 18);
+}
+.btn{
+  background-color: $variante;
+}

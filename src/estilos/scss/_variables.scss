@@ -1,0 +1,37 @@
+// VARIABLES
+// MAP 
+$paleta: (
+  "uno": #132f57,
+  "dos": #e5e9ee,
+  "tres": #7e8288,
+);
+// variables 
+$principal: #f5f8f7;
+$secundario: #00000a;
+$variante: #6499d4;
+$detalles: #3533be;
+$bistre: #2b2118ff;
+$azul: #01070f;
+$blanco: #2e2bb8;
+$gris: #7e8288;
+$padmob: 2.5rem;
+$padesk: 2.5rem;
+$footer: 2.6rem;
+$azul: #132f57;
+$blanco: #e5e9ee;
+$gris: #7e8288;
+$padmob: 2.5rem;
+$padesk: 2.5rem;
+$footer: 2.6rem;
+// mixin 
+@mixin desktop {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: 767.9px) {
+    @content;
+  }
+}
+$box-shadow: 0 .5rem 1rem rgba($blanco, .5);
