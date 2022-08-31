@@ -1,8 +1,11 @@
+import { useParams } from 'react-router-dom';
 import { productos } from '../mock/productos';
 import { ItemDetail } from './ItemDetail';
+
 const ItemDetailContent = () => {
+    const {idProducto} = useParams()
     
-    const itemDetail = productos.find(producto => producto.id === 1)
+    const itemDetail = productos.find(producto => producto.id === idProducto)
     return (
 
         <>

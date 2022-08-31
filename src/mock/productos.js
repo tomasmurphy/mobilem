@@ -1,6 +1,6 @@
 export const productos = [
     {
-        id: 1,
+        id: '1',
         categoria: 'sillones',
         titulo: 'Sillón italiano',
         precio: 50000,
@@ -11,7 +11,7 @@ export const productos = [
         img3: '../productos/56.1.jpeg',
     },
     {
-        id: 2,
+        id: '2',
         categoria: 'colchones',
         titulo: 'Colchon',
         precio: 50000,
@@ -22,7 +22,7 @@ export const productos = [
         img3: '../productos/56.1.jpeg',
     },
     {
-        id: 3,
+        id: '3',
         categoria: 'placares',
         titulo: 'Placar',
         precio: 50000,
@@ -33,7 +33,7 @@ export const productos = [
         img3: '../productos/56.1.jpeg',
     },
     {
-        id: 4,
+        id: '4',
         categoria: 'sillones',
         titulo: 'Sillon mobilem',
         precio: 50000,

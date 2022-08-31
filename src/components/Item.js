@@ -1,8 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// const onAdd = (param) => {
-//     alert(param);
-// };
 export const Item = (
     {
     id = 1,
@@ -19,7 +16,7 @@ export const Item = (
                 <h5>${precio}</h5>
                 <img src={img1} alt={`Foto de ${titulo}`} className='img-fluid' />
                 <p>En stock {stock}</p>
-                <Link to={'/detail'}>
+                <Link to={`/detail/${id}`}>
                 <buttom className='btn'>Ver detalles </buttom>
                 </Link>
             </div>  )
