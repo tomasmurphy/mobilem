@@ -1,6 +1,5 @@
 import React from 'react'
-import ItemCount from './ItemCount'
-
+import { Link } from 'react-router-dom'
 // const onAdd = (param) => {
 //     alert(param);
 // };
@@ -20,6 +19,8 @@ export const Item = (
                 <h5>${precio}</h5>
                 <img src={img1} alt={`Foto de ${titulo}`} className='img-fluid' />
                 <p>En stock {stock}</p>
-                <ItemCount stock={stock}/>
+                <Link to={'/detail'}>
+                <buttom className='btn'>Ver detalles </buttom>
+                </Link>
             </div>  )
 }

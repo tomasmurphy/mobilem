@@ -5,11 +5,8 @@
   align-content: flex-end;
   flex-direction: column;
   .active{
-    background-color:  $detalles;
-    columns: $detalles;
-    opacity: .9;
-    border-radius: 2rem;
-    width: auto;
+    font-size: bold;
+    color: white;
   }
   
 }

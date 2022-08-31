@@ -8388,11 +8388,8 @@ h1, .h1 {
   align-content: flex-end;
   flex-direction: column; }
   .navbar-expand-md .navbar-collapse .active {
-    background-color: #3533be;
-    columns: #3533be;
-    opacity: .9;
-    border-radius: 2rem;
-    width: auto; }
+    font-size: bold;
+    color: white; }
 
 .burgerTop {
   background-color: #6499d4; }

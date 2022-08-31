@@ -1,14 +1,14 @@
 import logo from '../img/logo.png';
 import {CardWidget} from './CardWidget';
-
+import { Link, NavLink } from 'react-router-dom';
 function Nav() {
     return (
 <nav id="menu" className="cajaNav navbar-dark navbar navbar-expand-md">
       <div className="burgerTop container-fluid mt-3 mt-md-0">
         <div className="bloqueLogo" id="1">
-          <a className="sombra navbar-brand mx-auto" href="#menu">
+          <Link to={'/'} className="sombra navbar-brand mx-auto">
             <img src={logo} alt="logo de mobilem" className="img-fluid" />
-          </a>
+          </Link>
           
           </div>
         <button
@@ -25,24 +25,21 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        <li className="nav-item"><a className="nav-link" href="#menu"> <CardWidget/></a></li>
-        <li className="nav-item dropdown">
-          
-          <a className="nav-link dropdown-toggle" href="#menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <NavLink to={'/carrito'} className=""> <CardWidget/> </NavLink>
+          <NavLink to={''} className='dropdown'>
+          <NavLink to={''} className="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             Productos
-          </a>
+          </NavLink>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#menu">Placares</a></li>
-            <li><a className="dropdown-item" href="#menu">Sillones</a></li>
-            <li><a className="dropdown-item" href="#menu">Sommiers</a></li>
+          
+          <li> <Link to={'/'} className="dropdown-item">Todos los productos</Link></li>  
+            <li> <Link to={'categoria/placares'} className="dropdown-item"> Placares </Link></li>
+            <li> <Link to={'categoria/sillones'} className="dropdown-item">Sillones</Link></li>
+            <li> <Link to={'categoria/colchones'} className="dropdown-item">Colchones</Link></li>
           </ul>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" aria-current="page" href="#menu">Nosotros</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#menu">Contacto</a>
-        </li>
+          </NavLink>
+        <NavLink to={'/nosotros'}> Nosotros </NavLink>
+                
         
       </ul>         
        </div>

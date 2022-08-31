@@ -1,12 +1,20 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import ItemListContainer from '../components/ItemListContainer';
+import Card from './Card';
 import ItemDetailContent from './ItemDetailContent';
+import Nosotros from './Nosotros';
 
 const Main = () => {
     return (
         <main className="mt-5 container-fluid">
-            <ItemListContainer saludo="Bienvenidos a Mobilem" />
-            <ItemDetailContent/>
+            <Routes>
+            <Route path='/' element={<ItemListContainer saludo="Bienvenidos a Mobilem" />}/>
+            <Route path='/detail' element={<ItemDetailContent/>}/>
+            <Route path='/categoria/:nombreCategoria' element={<ItemListContainer/>}/>
+            <Route path='/carrito' element={<Card/>}/>
+            <Route path='/nosotros' element={<Nosotros/>}/>
+            </Routes>
         </main>
     );
 };

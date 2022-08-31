@@ -1,7 +1,7 @@
 export const productos = [
     {
         id: 1,
-        categoria: 'Sillas y sillones',
+        categoria: 'sillones',
         titulo: 'Sillón italiano',
         precio: 50000,
         stock: 3,
@@ -12,8 +12,8 @@ export const productos = [
     },
     {
         id: 2,
-        categoria: 'Sillas y sillones',
-        titulo: 'Sillón simona',
+        categoria: 'colchones',
+        titulo: 'Colchon',
         precio: 50000,
         stock: 2,
         descripcion: "Un sillon y etc",
@@ -23,8 +23,8 @@ export const productos = [
     },
     {
         id: 3,
-        categoria: 'Sillas y sillones',
-        titulo: 'Sofa cama',
+        categoria: 'placares',
+        titulo: 'Placar',
         precio: 50000,
         stock: 1,
         descripcion: "Un sillon y etc",
@@ -34,7 +34,7 @@ export const productos = [
     },
     {
         id: 4,
-        categoria: 'Sillas y sillones',
+        categoria: 'sillones',
         titulo: 'Sillon mobilem',
         precio: 50000,
         stock: 10,
