@@ -3,11 +3,10 @@ import { productos } from '../mock/productos';
 import { ItemDetail } from './ItemDetail';
 
 const ItemDetailContent = () => {
-    const {idProducto} = useParams()
-    
+    const { idProducto } = useParams()
     const itemDetail = productos.find(producto => producto.id === idProducto)
-    return (
 
+    return (
         <>
             <div className='row mt-5'>
                 <h5>Detalle del producto</h5>

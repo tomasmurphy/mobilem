@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const ItemCount = ({stock, onAdd}) => {
+const ItemCount = ({ stock, onAdd }) => {
     const [count, setCount] = useState(0);
-
     let tope = stock;
 
     const sumar = () => {

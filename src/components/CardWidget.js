@@ -1,7 +1,8 @@
-export const CardWidget = () =>{
-    return(
+export const CardWidget = () => {
+
+    return (
         <>
-        <i className="bi bi-bag"></i>
+            <i className="bi bi-bag"></i>
         </>
     )
 }

@@ -2,21 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { productos } from '../mock/productos';
 import { ItemList } from './ItemList';
+
 const ItemListContainer = ({ saludo }) => {
-    
+
     const [items, setItems] = useState([]);
-    const {nombreCategoria} = useParams()
+    const { nombreCategoria } = useParams()
 
     useEffect(() => {
-    
+
         const getProducts = () =>
-        new Promise((res, rej) => {
-            const productosFiltrados = productos.filter(
-                (producto) => producto.categoria === nombreCategoria)
-            setTimeout(() => {
-                res(nombreCategoria ? productosFiltrados:productos);
-            }, 2000);
-        });
+            new Promise((res, rej) => {
+                const productosFiltrados = productos.filter(
+                    (producto) => producto.categoria === nombreCategoria)
+                setTimeout(() => {
+                    res(nombreCategoria ? productosFiltrados : productos);
+                }, 2000);
+            });
 
         getProducts()
             .then((data) => {
@@ -28,15 +29,15 @@ const ItemListContainer = ({ saludo }) => {
             .finally(() => {
                 console.log('Finally');
             });
-    }, 
-    [nombreCategoria]);
+    },
+        [nombreCategoria]);
 
     return (
-      <>
-        <div className='row mt-5'>
-            <h2>{saludo}</h2>
-            <ItemList items={items} />
-        </div>
+        <>
+            <div className='row mt-5'>
+                <h2>{saludo}</h2>
+                <ItemList items={items} />
+            </div>
         </>
     );
 };
