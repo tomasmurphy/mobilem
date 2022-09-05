@@ -1,6 +1,6 @@
 import logo from '../img/logo.png';
-import { CardWidget } from './CardWidget';
 import { Link, NavLink } from 'react-router-dom';
+import { CartWidget } from './CartWidget';
 
 function Nav() {
 
@@ -26,7 +26,7 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <NavLink to={'/carrito'} className=""> <CardWidget /> </NavLink>
+            <NavLink to={'/carrito'} className=""> <CartWidget /> </NavLink>
             <NavLink to={''} className='dropdown'>
               <NavLink to={''} className="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Productos

@@ -1,4 +1,4 @@
-export const CardWidget = () => {
+export const CartWidget = () => {
 
     return (
         <>
