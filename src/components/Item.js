@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 export const Item = (
   {
-    id = 1,
-    titulo = 'Producto de testeo',
-    img1 = 'https://pbs.twimg.com/media/DcwoS-VWkAIB60j.jpg',
-    precio = 600,
-    stock = 10
+    id = "",
+    titulo = '',
+    img1 = '',
+    precio = 0,
+    stock = 0
   }
 
 ) => {
