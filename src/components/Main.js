@@ -8,7 +8,7 @@ import Nosotros from './Nosotros';
 const Main = () => {
 
     return (
-        <main className="mt-5 container-fluid">
+        <main className="container-fluid">
             <Routes>
                 <Route path='/' element={<ItemListContainer saludo="Bienvenidos a Mobilem" />} />
                 <Route path='/categoria/:nombreCategoria' element={<ItemListContainer />} />

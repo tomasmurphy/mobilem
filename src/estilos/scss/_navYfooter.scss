@@ -1,68 +1,33 @@
 @import "_variables.scss";
 /* NAVEGACION */
-.navbar-expand-md .navbar-collapse {
-  justify-content: flex-end;
-  align-content: flex-end;
-  flex-direction: column;
-  .active{
+.active{
     font-size: bold;
     color: white;
+    background-color: $variante;
+    font-style: normal;
   }
   
-}
-.burgerTop{
-  background-color: $variante;
-}
-@include desktop{
 
-// .cajaNav{
-//   background: $principal;
-//   height: 9vh;
-//   width: 100%;
-//   position: fixed;
-//   display: flex;
-//   z-index: 15;
-//   align-items: flex-start;
-//   opacity: .6;
-// }
-}
 .bloqueLogo{
   display: flex;
   align-items: center;
-  flex-direction: row;
+  justify-content: center;
   margin: auto;
-  padding-left: 56px;
   img{
-    width: 5%;
+    width: 10rem;
   }
   
-  h1 {
-    margin-top: .5rem;
-  font-size: 1.25rem;
-  color: $detalles;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0;
-  padding-top: 0.3125rem;
-    padding-bottom: 0.3125rem;
-  }
-  @include desktop{
-    flex-direction: row;
-      h1{
-        justify-content: flex-start;
-        padding-left: 0px;
-        font-size: 1.25rem;
-      }
-  }
 }
 .fondo{
   background: $principal;
 }
-.navbar-bar {align-items: flex-end;
-  
-}
+
 i{
-  color: $detalles;
+  color: $variante;
+  margin: auto;
+  font-size: 1.3rem;
+  padding-left: 1rem;
+  margin-top: .5rem;
 }
 .navbar-dark .navbar-brand {
   font-style: normal;
@@ -76,10 +41,8 @@ i{
 .navbar-brand {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
-  font-size: 1.2¿rem;
-  text-decoration: none;
-  white-space: nowrap;
-  
+  font-size: 1.2rem;
+  text-decoration: none;  
  }
 .desaparece{
   opacity: 0;
@@ -90,39 +53,7 @@ i{
   padding-right: 2rem;
   margin-top: .3rem;
 }
-.navbar-collapse {
-  flex-basis: 100%;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  a {
-    font-size: 1.2rem;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: center;
-    color: $secundario;
-    margin: 2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    &:hover {
-      color: $secundario;
-      opacity: .7;
-    }
-    
-    }
-    @include desktop{
-      a {
-        font-size: 1.2rem;
-        margin-right: 2rem;
-        margin-top: .5rem;
-        margin-bottom: 0;
-        margin-left: 0;
-        color: $secundario;
-    }}
-}
+
 nav {
   opacity: 1;
   position: fixed;
@@ -147,10 +78,7 @@ nav {
   }
   }
 }
-.navbar > .container, .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
-  display: flex;
-  flex-wrap: inherit;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0;
+
+.navbar-nav {
+  flex-direction: row;
 }

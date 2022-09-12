@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const ItemCount = ({ stock, onAdd, initial }) => {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
     let tope = stock;
 
     const sumar = () => {
@@ -25,7 +25,7 @@ const ItemCount = ({ stock, onAdd, initial }) => {
             <button className='btn' onClick={restar}>-</button>
             <p>Cantidad: {count} </p>
             <button className='btn' id='agregarAlCarrito' onClick={() => onAdd(count, irAlCarrito())}>Agregar al carrito</button>
-            <Link to={'/carrito'} onClick={() => onAdd(count)} id='irAlCarrito' className='btn d-none'>Ir al carrito</Link>
+            <Link to={'/carrito'} id='irAlCarrito' className='btn d-none'>Ir al carrito</Link>
         </div>
     );
 };

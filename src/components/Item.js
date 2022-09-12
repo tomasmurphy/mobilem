@@ -11,7 +11,7 @@ export const Item = (
 
 ) => {
   return (
-    <div className="card col-3" key={id}>
+    <div className="card col-12 col-md-3" key={id}>
       <p>{titulo}</p>
       <h5>${precio}</h5>
       <img src={img1} alt={`Foto de ${titulo}`} className='img-fluid' />
