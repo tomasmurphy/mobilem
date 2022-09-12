@@ -3,8 +3,8 @@
 .active{
     font-size: bold;
     color: white;
-    background-color: $variante;
-    font-style: normal;
+    border-top: 1px solid $variante;
+    border-bottom: 1px solid $variante;
   }
   
 
@@ -22,13 +22,7 @@
   background: $principal;
 }
 
-i{
-  color: $variante;
-  margin: auto;
-  font-size: 1.3rem;
-  padding-left: 1rem;
-  margin-top: .5rem;
-}
+
 .navbar-dark .navbar-brand {
   font-style: normal;
     font-variant: normal;

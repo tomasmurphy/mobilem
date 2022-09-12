@@ -10,14 +10,13 @@ function Nav() {
         <div className="bloqueLogo" id="1">
           <Link to={'/'} className="sombra navbar-brand mx-auto">
             <img src={logo} alt="logo de mobilem" className="img-fluid" />
-            <NavLink to={'/carrito'} className=""> <CartWidget /> </NavLink>
-
           </Link>
         </div>
         <ul className="navbar-nav">
-          <NavLink to={'categoria/placares'} className=""> Placares </NavLink>
-          <NavLink to={'categoria/sillones'} className="">Sillones</NavLink>
-          <NavLink to={'categoria/colchones'} className="">Colchones</NavLink>
+          <NavLink to={'/carrito'} className="btn"> <CartWidget /> </NavLink>
+          <NavLink to={'categoria/placares'} className="btn"> Placares </NavLink>
+          <NavLink to={'categoria/sillones'} className="btn">Sillones</NavLink>
+          <NavLink to={'categoria/colchones'} className="btn">Colchones</NavLink>
         </ul>
       </div>
     </nav>

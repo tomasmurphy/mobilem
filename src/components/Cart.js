@@ -2,12 +2,18 @@ import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import Form from "./Form";
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
-    const { cart, clearCart, clearProducto, } = useContext(CartContext);
+    const { cart, clearCart, clearProducto, totalPrecio } = useContext(CartContext);
 
     if (cart.length === 0) {
-        return <h1>El carrito esta vacío</h1>
+        return <div>
+            <h1>El carrito esta vacío</h1>
+            <Link to="/" className="btn">
+                Ver productos
+            </Link>
+        </div>
     } else {
 
         return (
@@ -16,16 +22,20 @@ const Cart = () => {
                 <div>
                     {cart.map((producto) => (
                         <div key={producto.id}>
-                            <h2>{producto.titulo} x {producto.cantidad}</h2>
-                            <button className="btn" onClick={() => clearProducto(producto.id)}>
-                                Eliminar Producto
-                            </button>
+                            <div>{producto.titulo} ${producto.precio} x {producto.cantidad} = ${producto.cantidad * producto.precio}
+                                <button className="btn" onClick={() => clearProducto(producto.id)}>
+                                    <i className="bi bi-trash"></i>
+                                </button>
+                            </div>
+                            <hr />
                         </div>
-
                     ))}
                 </div>
-                <button className="btn" onClick={clearCart}>Vaciar Carrito</button>
-
+                <h2>Total carrito ${totalPrecio()}
+                    <button className="btn" onClick={clearCart}>
+                        Vaciar Carrito<i className="bi bi-trash"></i>
+                    </button>
+                </h2>
                 <Form />
             </div>
         );

@@ -95,8 +95,8 @@ export const productos = [
         stock: 1,
         descripcion: "Placares bla bla",
         img1: '../productos/5.1.jpeg',
-        img2: '../productos/5.2.jpeg',
-        img3: '../productos/5.3.jpeg',
+        img2: '../productos/5.2.jpg',
+        img3: '../productos/5.3.jpg',
     },
     {
         id: '10',
@@ -107,7 +107,7 @@ export const productos = [
         descripcion: "Placares bla bla",
         img1: '../productos/1.1.jpeg',
         img2: '../productos/1.2.jpeg',
-        img3: '../productos/1.3.jpeg',
+        img3: '../productos/1.2.jpeg',
     },
     {
         id: '11',

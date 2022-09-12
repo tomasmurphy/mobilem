@@ -17,7 +17,7 @@ export const Item = (
       <img src={img1} alt={`Foto de ${titulo}`} className='img-fluid' />
       <p>En stock {stock}</p>
       <Link to={`/detail/${id}`}>
-        <buttom className='btn'>Ver detalles </buttom>
+        <button className='btn'>Ver detalles </button>
       </Link>
     </div>)
 }

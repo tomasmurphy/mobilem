@@ -8386,8 +8386,8 @@ h1, .h1 {
 .active {
   font-size: bold;
   color: white;
-  background-color: #6499d4;
-  font-style: normal; }
+  border-top: 1px solid #6499d4;
+  border-bottom: 1px solid #6499d4; }
 
 .bloqueLogo {
   display: flex;
@@ -8399,13 +8399,6 @@ h1, .h1 {
 
 .fondo {
   background: #f5f8f7; }
-
-i {
-  color: #6499d4;
-  margin: auto;
-  font-size: 1.3rem;
-  padding-left: 1rem;
-  margin-top: .5rem; }
 
 .navbar-dark .navbar-brand {
   font-style: normal;

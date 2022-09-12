@@ -4,12 +4,15 @@ import ItemCount from './ItemCount'
 
 export const ItemDetail = ({ itemDetail }) => {
   const [cantidad, setCantidad] = useState(0);
-  const { addToCart } = useContext(CartContext)
+  const { addToCart, cantidadSeleccionada } = useContext(CartContext)
 
   const onAdd = (cantidad) => {
     setCantidad(cantidad);
     addToCart(itemDetail, cantidad);
   };
+
+  const cantidadEnCart = cantidadSeleccionada(itemDetail.id);
+
   return (
     <>
       <div className="card col-12 col-md-6" key={itemDetail.id}>
@@ -23,7 +26,7 @@ export const ItemDetail = ({ itemDetail }) => {
           </div>
           <p>{itemDetail.descripcion}</p>
           <p>En stock {itemDetail.stock}</p>
-          <ItemCount stock={itemDetail.stock} initial={1} onAdd={onAdd} />
+          <ItemCount stock={itemDetail.stock} initial={(cantidadEnCart === undefined) ? 1 : cantidadEnCart} onAdd={onAdd} />
           {cantidad === 0 ? <p></p> : <p>Seleccionaste {cantidad} productos</p>}
         </div>
       </div>

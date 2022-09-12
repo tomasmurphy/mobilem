@@ -24,7 +24,7 @@ export const CartProvider = ({ children }) => {
             if (producto.id === item.id) {
                 const productoActualizado = {
                     ...producto,
-                    cantidad: producto.cantidad + cantidad
+                    cantidad: cantidad
                 }
                 return productoActualizado
             } else {
@@ -42,9 +42,33 @@ export const CartProvider = ({ children }) => {
         const cartFiltrado = cart.filter((producto) => producto.id !== id)
         setCart(cartFiltrado)
     }
+    const totalCart = () => {
+        let acumulador = 0;
+        cart.forEach((producto) => {
+            acumulador += producto.cantidad;
+        });
+        return acumulador;
+    };
+
+
+    const totalPrecio = () => {
+        let acumulador = 0;
+        cart.forEach((producto) => {
+            acumulador += producto.cantidad * producto.precio;
+        });
+        return acumulador;
+    };
+
+    const cantidadSeleccionada = (id) => {
+        const producto = cart.find((prod) => prod.id === id);
+        return producto?.cantidad;
+    };
+
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, clearCart, clearProducto }}>
+        <CartContext.Provider value={{
+            cart, addToCart, clearCart, clearProducto, totalCart, totalPrecio, cantidadSeleccionada
+        }}>
             {children}
         </CartContext.Provider>
     );
