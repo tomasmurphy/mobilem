@@ -28,7 +28,7 @@ const Form = () => {
     };
 
     return (
-        <div>
+        <div className="">
             <form action="" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Nombre completo" name="nombreCompleto" value={nombreCompleto} onChange={handleChangeName} />
                 <input type="text" placeholder="Dirección" name="direccion" value={direccion} onChange={handleChangeLastName} />

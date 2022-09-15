@@ -12,12 +12,10 @@ export const Item = (
 ) => {
   return (
     <div className="card col-12 col-md-3" key={id}>
-      <p>{titulo}</p>
-      <h5>${precio}</h5>
-      <img src={img1} alt={`Foto de ${titulo}`} className='img-fluid' />
-      <p>En stock {stock}</p>
-      <Link to={`/detail/${id}`}>
-        <button className='btn'>Ver detalles </button>
+      <Link to={`/detail/${id}`} className='link'>
+        <img src={img1} alt={`Foto de ${titulo}`} className='img-fluid mx-0 px-0' />
+        <h4 className='text-center mt-2'>{titulo}</h4>
+        <p className='text-center'>${precio}</p>
       </Link>
     </div>)
 }

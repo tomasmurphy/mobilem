@@ -1,17 +1,38 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { productos } from '../mock/productos';
+import { dataBase } from '../firebaseConfig';
+import { getDoc, doc, collection } from 'firebase/firestore';
 import { ItemDetail } from './ItemDetail';
+import Loader from './Loader';
+
 
 const ItemDetailContent = () => {
+    const [itemDetail, setItem] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
     const { idProducto } = useParams()
-    const itemDetail = productos.find(producto => producto.id === idProducto)
+
+    useEffect(() => {
+        const itemsCollection = collection(dataBase, 'productos');
+        const ref = doc(itemsCollection, idProducto);
+        getDoc(ref)
+            .then((res) => {
+                setItem({
+                    id: res.id,
+                    ...res.data()
+                });
+                setIsLoading(false)
+            });
+    }, [idProducto]);
 
     return (
         <>
-            <div className='row mt-5'>
-                <h5>Detalle del producto</h5>
-                <ItemDetail itemDetail={itemDetail} />
-            </div>
+            {isLoading
+                ? (<Loader></Loader>)
+                : (<div className='row'>
+                    <h5>Detalle del producto</h5>
+                    <ItemDetail itemDetail={itemDetail} />
+                </div>)
+            }
         </>
     );
 };

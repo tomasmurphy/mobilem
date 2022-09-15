@@ -1,43 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { productos } from '../mock/productos';
 import { ItemList } from './ItemList';
+import Loader from './Loader';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { dataBase } from '../firebaseConfig';
 
 const ItemListContainer = ({ saludo }) => {
 
     const [items, setItems] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const { nombreCategoria } = useParams()
 
     useEffect(() => {
+        let q = ''
+        if (nombreCategoria === undefined) {
+            q = collection(dataBase, 'productos');
 
-        const getProducts = () =>
-            new Promise((res, rej) => {
-                const productosFiltrados = productos.filter(
-                    (producto) => producto.categoria === nombreCategoria)
-                setTimeout(() => {
-                    res(nombreCategoria ? productosFiltrados : productos);
-                }, 2000);
-            });
+        } else {
+            const itemsCollection = collection(dataBase, 'productos');
+            q = query(itemsCollection, where('categoria', '==', nombreCategoria))
 
-        getProducts()
-            .then((data) => {
-                setItems(data);
+        };
+
+        getDocs(q)
+            .then((res) => {
+                const productos = res.docs.map((prod) => {
+                    return {
+                        id: prod.id,
+                        ...prod.data()
+                    }
+                });
+                setItems(productos)
             })
             .catch((error) => {
-                console.log(error);
+                console.log(error)
             })
             .finally(() => {
-                console.log('Finally');
-            });
+                setIsLoading(false)
+            })
     },
         [nombreCategoria]);
 
     return (
         <>
-            <div className='row mt-5'>
+            {isLoading ? (<Loader></Loader>) : (<div className='row mt-5'>
                 <h2>{saludo}</h2>
                 <ItemList items={items} />
-            </div>
+            </div>)}
+
         </>
     );
 };
