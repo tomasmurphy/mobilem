@@ -1,16 +1,31 @@
 import React, { useState } from "react";
+import {serverTimestamp, collection, addDoc} from   'firebase/firestore'; 
+import { dataBase } from "../firebaseConfig";
 
-const Form = () => {
+const Form = ({cart, total, clearCart, handleId}) => {
     const [nombreCompleto, setNombre] = useState('');
     const [direccion, setDireccion] = useState('');
     const [entreCalle1, setEntreCalle1] = useState('');
     const [entreCalle2, setEntreCalle2] = useState('');
     const [formaPago, setFormaPago] = useState('');
 
-
     const handleSubmit = (event) => {
         event.preventDefault();
+        const orden ={
+            comprador: {nombre:nombreCompleto},
+            items: cart,
+            total: total,
+            date: serverTimestamp()
+        };
+        const ordersCollection = collection(dataBase, 'ordenes');
+        addDoc(ordersCollection, orden).then((res) => {
+            handleId(res.id);
+            clearCart();
+        });
+        
     };
+    
+    
     const handleChangeName = (event) => {
         setNombre(event.target.value);
     };
