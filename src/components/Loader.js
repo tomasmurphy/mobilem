@@ -6,7 +6,7 @@ const Loader = () => {
     return (
         <div className="contenido">
             <div className="spinner">
-            <img src={logo} alt="logo de mobilem" className="img-fluid" />
+                <img src={logo} alt="logo de mobilem" className="img-fluid" />
             </div>
         </div>
     );

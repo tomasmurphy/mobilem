@@ -7,6 +7,7 @@ import Loader from './Loader';
 
 
 const ItemDetailContent = () => {
+    window.scrollTo(0, 0)
     const [itemDetail, setItem] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const { idProducto } = useParams()
@@ -28,10 +29,12 @@ const ItemDetailContent = () => {
         <>
             {isLoading
                 ? (<Loader></Loader>)
-                : (<div className='row'>
-                    <h5>Detalle del producto</h5>
-                    <ItemDetail itemDetail={itemDetail} />
-                </div>)
+                : (
+                    <div className='row'>
+                        <h5>Detalle del producto</h5>
+                        <ItemDetail itemDetail={itemDetail} />
+                    </div>
+                )
             }
         </>
     );

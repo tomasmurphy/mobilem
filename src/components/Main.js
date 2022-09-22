@@ -7,14 +7,14 @@ import ItemDetailContent from './ItemDetailContent';
 const Main = () => {
 
     return (
-        <main className="container-fluid">
+        <div className="container-fluid">
             <Routes>
                 <Route path='/' element={<ItemListContainer saludo="Bienvenidos a Mobilem" />} />
-                <Route path='/categoria/:nombreCategoria'  element={<ItemListContainer />} />
+                <Route path='/categoria/:nombreCategoria' element={<ItemListContainer />} />
                 <Route path='/detalle/:idProducto' element={<ItemDetailContent />} />
                 <Route path='/carrito' element={<Cart />} />
             </Routes>
-        </main>
+        </div>
     );
 };
 

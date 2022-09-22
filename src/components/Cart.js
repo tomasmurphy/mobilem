@@ -45,9 +45,9 @@ const Cart = () => {
                         Vaciar Carrito<i className="bi bi-trash"></i>
                     </button>
                     <ModalCompra cart={cart}
-                    total={total}
-                    clearCart={clearCart}
-                    handleId={handleId}></ModalCompra>    
+                        total={total}
+                        clearCart={clearCart}
+                        handleId={handleId}></ModalCompra>
                 </h2>
             </div>
         );

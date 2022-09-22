@@ -7,7 +7,6 @@ export const Item = (
     titulo = '',
     img1 = '',
     precio = 0,
-    stock = 0
   }
 
 ) => {

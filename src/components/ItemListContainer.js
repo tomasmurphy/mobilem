@@ -6,7 +6,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { dataBase } from '../firebaseConfig';
 
 const ItemListContainer = ({ saludo }) => {
-
+    window.scrollTo(0, 0)
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { nombreCategoria } = useParams()
@@ -47,7 +47,6 @@ const ItemListContainer = ({ saludo }) => {
                 <h2>{saludo}</h2>
                 <ItemList items={items} />
             </div>)}
-
         </>
     );
 };

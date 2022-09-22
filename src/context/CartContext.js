@@ -12,7 +12,6 @@ export const CartProvider = ({ children }) => {
         } else {
             setCart([...cart, { ...item, cantidad }])
         }
-
     }
 
     const isInCart = (id) => {
@@ -42,6 +41,7 @@ export const CartProvider = ({ children }) => {
         const cartFiltrado = cart.filter((producto) => producto.id !== id)
         setCart(cartFiltrado)
     }
+
     const totalCart = () => {
         let acumulador = 0;
         cart.forEach((producto) => {
@@ -49,7 +49,6 @@ export const CartProvider = ({ children }) => {
         });
         return acumulador;
     };
-
 
     const totalPrecio = () => {
         let acumulador = 0;
@@ -63,7 +62,6 @@ export const CartProvider = ({ children }) => {
         const producto = cart.find((prod) => prod.id === id);
         return producto?.cantidad;
     };
-
 
     return (
         <CartContext.Provider value={{

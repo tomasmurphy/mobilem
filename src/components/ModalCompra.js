@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Form from "./Form";
+
 function ModalCompra({ cart, total, clearCart, handleId }) {
     const [show, setShow] = useState(false);
 
@@ -12,7 +13,6 @@ function ModalCompra({ cart, total, clearCart, handleId }) {
             <button className='btn' variant="primary" onClick={handleShow}>
                 Comprar
             </button>
-
             <Modal
                 show={show}
                 onHide={handleClose}

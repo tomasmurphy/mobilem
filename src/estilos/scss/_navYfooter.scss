@@ -76,3 +76,25 @@ nav {
 .navbar-nav {
   flex-direction: row;
 }
+
+footer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  text-justify: center;
+  align-self: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  background-color:$variante;
+  border-top: 1px inset $principal;
+h4{
+  font-size: 1rem;
+  font-weight: bold;
+  padding-top: 2rem;
+}
+p{
+  font-size: .8rem;
+}
+}

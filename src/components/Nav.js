@@ -1,7 +1,6 @@
 import logo from '../img/LogoNuevo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { CartWidget } from './CartWidget';
-
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { dataBase } from '../firebaseConfig';
@@ -26,8 +25,7 @@ function Nav() {
       .catch((error) => {
         console.log(error)
       })
-  },
-    []);
+  }, []);
 
 
   return (

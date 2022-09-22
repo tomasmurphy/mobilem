@@ -49,7 +49,6 @@ export const ItemDetail = ({ itemDetail }) => {
         <h4>Medios de pagos bla bla y otra sarasa
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, voluptatibus rerum natus, dolorum architecto minus amet facere, eveniet sed illum odit! Placeat quisquam quis eius provident? Dolore praesentium nemo unde?
         </h4>
-
       </div>
     </>)
 }
