@@ -5,7 +5,7 @@ import Loader from './Loader';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { dataBase } from '../firebaseConfig';
 
-const ItemListContainer = ({ saludo }) => {
+const ItemListContainer = () => {
     window.scrollTo(0, 0)
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -40,11 +40,10 @@ const ItemListContainer = ({ saludo }) => {
             })
     },
         [nombreCategoria]);
-
+ 
     return (
         <>
-            {isLoading ? (<Loader></Loader>) : (<div className='row mt-5'>
-                <h2>{saludo}</h2>
+            {isLoading ? (<Loader></Loader>) : (<div className='item row'>
                 <ItemList items={items} />
             </div>)}
         </>

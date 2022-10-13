@@ -1,8 +1,9 @@
-// npm run watch-css
 // IMPORTS 
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
-@import "_variables.scss";
-@import "_fonts";
 @import "_general.scss";
-@import "_navYfooter.scss";
-@import "_index.scss";
+@import "_nav.scss";
+@import "_item.scss";
+@import "_carousel";
+@import "_home";
+
+

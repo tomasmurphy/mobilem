@@ -12,7 +12,7 @@ export const Item = (
 ) => {
   const tituloId = titulo.replace(" ", "_");
   return (
-    <div className="card col-12 col-md-3" key={id}>
+    <div className="card" key={id}>
       <Link to={`/detalle/${id}#${tituloId}`} className='link'>
         <img src={img1} alt={`Foto de ${titulo}`} className='img-fluid mx-0 px-0' />
         <h4 className='text-center mt-2'>{titulo}</h4>

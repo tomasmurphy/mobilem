@@ -7,7 +7,10 @@ export const CartWidget = () => {
     const { totalCart } = useContext(CartContext);
     return (
         <>
-            <i className="bi bi-bag">{(totalCart() === 0) ? '' : totalCart()}</i>
+            {(totalCart() === 0) 
+            ? <i className="bi bi-cart"></i> 
+            : (<i className="bi bi-cart-check"><span className="d-inline nroCart">{totalCart()}</span></i>)
+            }
         </>
     )
 }

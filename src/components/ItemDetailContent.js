@@ -11,7 +11,7 @@ const ItemDetailContent = () => {
     const [itemDetail, setItem] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const { idProducto } = useParams()
-
+    
     useEffect(() => {
         const itemsCollection = collection(dataBase, 'productos');
         const ref = doc(itemsCollection, idProducto);
@@ -30,8 +30,7 @@ const ItemDetailContent = () => {
             {isLoading
                 ? (<Loader></Loader>)
                 : (
-                    <div className='row'>
-                        <h5>Detalle del producto</h5>
+                    <div className='detalle'>
                         <ItemDetail itemDetail={itemDetail} />
                     </div>
                 )

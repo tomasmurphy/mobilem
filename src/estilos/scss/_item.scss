@@ -1,0 +1,36 @@
+.item{
+    .link{
+        text-decoration: none;
+      }
+      .row {
+        --bs-gutter-x: 0rem;}
+        .card {
+          padding: 1rem;
+         
+      }
+      .card {
+        border: none;
+        border-radius: none;
+      }
+      .card-img {
+        border: none;
+        border-radius: none;
+      }
+      h4{
+        font-size: .8rem;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+      p{
+        font-size: 1rem;
+        font-weight: bold;
+      }
+}
+.detalle{
+  margin: auto;
+  max-width: 1200px;
+  .card{
+    border: none;
+    padding: 2rem;
+  }
+}

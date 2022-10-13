@@ -4,9 +4,10 @@ import { Item } from './Item'
 export const ItemList = ({ items }) => {
 
    return (
-      <div className='row'>
+      <>
          {
             items.map(item =>
+               <div className='card col-12 col-md-3'>
                <Item
                   key={item.id}
                   id={item.id}
@@ -14,8 +15,9 @@ export const ItemList = ({ items }) => {
                   titulo={item.titulo}
                   stock={item.stock}
                   precio={item.precio} />
+                  </div>
             )
          }
-      </div>
+      </>
    )
 };

@@ -10,7 +10,7 @@ function ModalCompra({ cart, total, clearCart, handleId }) {
 
     return (
         <>
-            <button className='btn' variant="primary" onClick={handleShow}>
+            <button className='btn'  onClick={handleShow}>
                 Comprar
             </button>
             <Modal
