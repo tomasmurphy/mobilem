@@ -23,9 +23,9 @@ const Cart = () => {
         return <div className="cart mt-3">
             <h1>El carrito esta vacío</h1>
             <div className="botonera">
-            <Link to="/categoria" className="boton">
-                Ver todos los productos
-            </Link>
+                <Link to="/categoria" className="boton">
+                    Ver todos los productos
+                </Link>
             </div>
         </div>
     } else {
@@ -33,14 +33,12 @@ const Cart = () => {
         return (
             <div className="cart mt-3">
                 <h1 className=''>  Productos seleccionados   </h1>
-                {/* <div className="boton vaciar" onClick={clearCart}>
-                        Vaciar Carrito<i className="bi bi-trash"></i>
-                    </div> */}
+
                 <div>
                     {cart.map((producto) => (
                         <div key={producto.id}>
-                            <div>{producto.titulo} ${producto.precio} x {producto.cantidad} = ${producto.cantidad * producto.precio} // {producto.formaPago}
-                                <button className="btn" onClick={() => clearProducto(producto.id)}>
+                            <div>{producto.titulo} ${producto.precio} x {producto.cantidad} = ${producto.cantidad * producto.precio} / {producto.formaPago}
+                            <button className="btn" onClick={() => clearProducto(producto.id)}>
                                     <i className="bi bi-trash"></i>
                                 </button>
                             </div>

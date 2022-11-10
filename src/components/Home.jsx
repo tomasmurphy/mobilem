@@ -1,10 +1,10 @@
-import Carousel from "./Carousel";
 import {Item} from './Item'
 import React, { useState, useEffect } from 'react';
 import Loader from './Loader';
 import { collection, getDocs } from 'firebase/firestore';
 import { dataBase } from '../firebaseConfig';
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Home = () => {
     window.scrollTo(0, 0)
@@ -36,62 +36,94 @@ const Home = () => {
     },
         [nombreCategoria]);
 
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ],
-  };
+  // var settings = {
+  //   dots: false,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 4,
+  //   slidesToScroll: 1,
+  //   initialSlide: 0,
+  //   autoplay: true,
+  //   autoplaySpeed: 2000,
+  //   cssEase: "linear",
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 3,
+  //         slidesToScroll: 3,
+  //         infinite: true,
+  //         dots: true
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 600,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 2,
+  //         initialSlide: 2
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 480,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 2
+  //       }
+  //     }
+  //   ],
+  // };
   return (
          <>
          {isLoading ? (<Loader />) :
-         (<section className="pad home item">
-         <div className="row"><Carousel className='maxCar' settings={settings}>
-             {
-            items.map(item =>
-               <div className='card'>
+         (<section className="item">
+         <div className="row">
+               <div className='col-6 col-md-3 card'>
                <Item  
-                  key={item.id}
-                  id={item.id}
-                  imagenes={item.imagenes}
-                  titulo={item.titulo}
-                  stock={item.stock}
-                  precio={item.precio} />
+                  key={items[0].id}
+                  id={items[0].id}
+                  imagenes={items[0].imagenes}
+                  titulo={items[0].titulo}
+                  stock={items[0].stock}
+                  precio={items[0].precio} />
                   </div>
-                           )
-         }            
-        </Carousel></div></section>)}
+                  <div className='col-6 col-md-3 card'>
+               <Item  
+                  key={items[1].id}
+                  id={items[1].id}
+                  imagenes={items[1].imagenes}
+                  titulo={items[1].titulo}
+                  stock={items[1].stock}
+                  precio={items[1].precio} />
+                  </div>
+                  <div className='col-6 col-md-3 card'>
+               <Item  
+                  key={items[2].id}
+                  id={items[2].id}
+                  imagenes={items[2].imagenes}
+                  titulo={items[2].titulo}
+                  stock={items[2].stock}
+                  precio={items[2].precio} />
+                  </div>
+                  <div className='col-6 col-md-3 card'>
+               <Item  
+                  key={items[3].id}
+                  id={items[3].id}
+                  imagenes={items[3].imagenes}
+                  titulo={items[3].titulo}
+                  stock={items[3].stock}
+                  precio={items[3].precio} />
+                  </div>
+                           
+         
+       </div>
+            
+        </section>)}
+        <div className="botonera">
+            <Link to="/categoria" className="boton">
+                Ver todos los productos
+            </Link>
+            </div>
         </>
     );
 };

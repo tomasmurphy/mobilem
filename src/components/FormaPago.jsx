@@ -7,18 +7,18 @@ const FormaPago = ({ itemDetail, count }) => {
   const coeficientes = (itemDetail.categoria === "sillones")? seisSinInteres : tresSinInteres
  
 
-  const doce = `Tarjeta de credito bancaria 12 cuotas de $${
+  const doce = `12 cuotas de $${
     Math.round(itemDetail.precio * coeficientes[1] / 12)  * count
-  }`;
-  const seis = `Tarjeta de credito bancaria 6 cuotas de $${
+  } con tarjeta de credito bancaria `;
+  const seis = `6 cuotas de $${
     Math.round(itemDetail.precio * coeficientes[0] / 6) * count
-  }`;
-  const tres = `Tarjeta de credito bancaria 3 cuotas de $${Math.round(
+  } con tarjeta de credito bancaria `;
+  const tres = `3 cuotas de $${Math.round(
     (itemDetail.precio / 3) * count
-  )}`;
-  const personal = `Crédito personal 4 cuotas de $${Math.round(
+  )} con tarjeta de credito bancaria `;
+  const personal = `4 cuotas de $${Math.round(
     (itemDetail.precio / 4) * count
-  )}`;
+  )} con crédito personal `;
   const contado = `Efectivo, débito, transferencia: $${Math.round(
     itemDetail.precio * coeficientes[2] * count
   )}`;

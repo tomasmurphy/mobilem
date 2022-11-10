@@ -8707,6 +8707,10 @@ h5, .h5 {
     display: inline;
     cursor: pointer; }
 
+.botonera {
+  display: flex;
+  justify-content: center; }
+
 .cart {
   min-height: 50vh; }
   .cart h1, .cart .h1 {
@@ -8723,8 +8727,13 @@ h5, .h5 {
   .cart .vaciar {
     background-color: #a7a4a4; }
   .cart .botonera {
+    align-items: center;
+    flex-direction: column;
     display: flex;
     justify-content: center; }
+    @media screen and (min-width: 768px) {
+      .cart .botonera {
+        flex-direction: row; } }
 
 .form {
   display: flex;

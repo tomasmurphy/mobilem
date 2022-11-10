@@ -7,7 +7,7 @@ export const ItemList = ({ items }) => {
       <>
          {
             items.map(item =>
-               <div className='card col-12 col-md-3'>
+               <div className='card col-6 col-md-3'>
                <Item
                   key={item.id}
                   id={item.id}
