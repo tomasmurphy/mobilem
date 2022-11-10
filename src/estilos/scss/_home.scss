@@ -1,5 +1,18 @@
-.home{
-    height: 80vh;
-    display: flex;
-    align-items: center;
+.bannerPromo{
+height: auto;
+width: 100%;
+margin-top: 3rem;
+.row{
+align-items: center;
+text-align: center
+};
+p, i{text-decoration: none;
+color:  grey;}
+i{
+    font-size: 4rem;
+}
+.pModal{
+    display: inline;
+    cursor: pointer;
+}
 }

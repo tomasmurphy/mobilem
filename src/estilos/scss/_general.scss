@@ -31,13 +31,24 @@ $detalle2: rgba(65, 180, 245, 0);
   letter-spacing: .5px;
   }
 
-
-.btn{
+.negrita{
+  font-weight: bold;
+}
+.boton{
   background-color: $detalle;
-  margin: .5rem;
   color: $fondo;
   text-transform: uppercase;
   font-size: .8rem;
+  text-decoration: none;
+  padding: 1rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  &:hover{
+    opacity: .7;
+    color: white;
+  }
   i{
     color: $fondo;
     margin: .5rem;
@@ -48,7 +59,7 @@ $detalle2: rgba(65, 180, 245, 0);
 // LOADER 
 .contenido{
   width:100%;
-  height:80vh;
+  height: 15rem;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -63,7 +74,8 @@ $detalle2: rgba(65, 180, 245, 0);
   background:transparent;
   border-top-color:#efef;
   border-bottom-color: #efef;
-  border-left-color: $detalle6;
+  border-right-color: #efef;
+  border-left-color: #efef;
   animation:spin 4s linear infinite;
   position:relative;
 }

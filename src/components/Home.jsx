@@ -6,7 +6,6 @@ import { collection, getDocs } from 'firebase/firestore';
 import { dataBase } from '../firebaseConfig';
 import { useParams } from 'react-router-dom';
 
-
 const Home = () => {
     window.scrollTo(0, 0)
     const [items, setItems] = useState([]);
@@ -25,7 +24,8 @@ const Home = () => {
                         ...prod.data()
                     }
                 });
-                setItems(productos)
+                const productosOrdenados = [...productos].sort((a, b) => (a.precio > b.precio ? 1 : a.precio < b.precio ? -1 : 0))
+                setItems(productosOrdenados)
             })
             .catch((error) => {
                 console.log(error)
@@ -80,13 +80,15 @@ const Home = () => {
          <div className="row"><Carousel className='maxCar' settings={settings}>
              {
             items.map(item =>
-               <Item 
+               <div className='card'>
+               <Item  
                   key={item.id}
                   id={item.id}
-                  img1={item.img1}
+                  imagenes={item.imagenes}
                   titulo={item.titulo}
                   stock={item.stock}
                   precio={item.precio} />
+                  </div>
                            )
          }            
         </Carousel></div></section>)}

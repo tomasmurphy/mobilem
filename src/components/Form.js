@@ -7,18 +7,26 @@ const Form = ({ cart, total, clearCart, handleId }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [nombreCompleto, setNombre] = useState('');
-    const [mail, setMail] = useState('');
-    const [cel, setCel] = useState('');
-    const [formaPago, setFormaPago] = useState('');
-
+    const [localidad, setLocalidad] = useState('');
+    const [direccion, setDireccion] = useState('');
+    const [tel, setTel] = useState('');
+  
     const handleSubmit = (event) => {
+  // eslint-disable-next-line no-restricted-globals
+  let celu = screen.width < 990 ? "api" : "web";
+  let mensaje = ""
+  
 
         setIsLoading(true)
         event.preventDefault();
-
+        cart.map(prod =>
+            mensaje += `${prod.titulo} x ${prod.cantidad}. ${prod.formaPago} // `
+        )
+        const whatsapp = `Hola Mobilem! Soy ${nombreCompleto} de ${localidad} (${direccion}) por la compra de ${mensaje}` 
+        let linkCompra = `https://${celu}.whatsapp.com/send?phone=5491168475475&text=${whatsapp}`;
         const orden = {
-            comprador: { nombre: nombreCompleto, email: mail, celular: cel, formaPago: formaPago },
-            items: cart,
+            comprador: { nombre: nombreCompleto, localidad: localidad, direccion: direccion},
+            items: mensaje,
             total: total,
             date: serverTimestamp()
         };
@@ -27,37 +35,36 @@ const Form = ({ cart, total, clearCart, handleId }) => {
             handleId(res.id);
             clearCart();
         });
-    };
+        window.open(linkCompra, '_blank')
+     };
+    
+    
 
     const handleChangeName = (event) => {
         setNombre(event.target.value);
     };
-    const handleChangeMail = (event) => {
-        setMail(event.target.value);
+    const handleChangeLocalidad = (event) => {
+        setLocalidad(event.target.value);
     };
-    const handleChangeEntreCel = (event) => {
-        setCel(event.target.value);
+    const handleChangeDireccion = (event) => {
+        setDireccion(event.target.value);
+    };
+    const handleChangeTel = (event) => {
+        setTel(event.target.value);
     };
 
-    const handleChangeFormaPago = (event) => {
-        setFormaPago(event.target.value);
-    };
 
     return (
         <>
             {isLoading ? (<Loader></Loader>)
                 : (<div className="">
-                    <form action="" onSubmit={handleSubmit}>
+                    <form className="form" action="" onSubmit={handleSubmit}>
                         <input type="text" required placeholder="Nombre completo" name="nombreCompleto" value={nombreCompleto} onChange={handleChangeName} />
-                        <input type="email" required placeholder="E-mail" name="mail" value={mail} onChange={handleChangeMail} />
-                        <input type="tel" pattern="^[0-9]+$" minLength={10} title='Ingresa un numero de telefono válido, sin espacios, guiones, o parentesis' placeholder="Celular sin 0 ni 15" name="cel" value={cel} onChange={handleChangeEntreCel} />
-                        <select name="formaPago" value={formaPago} onChange={handleChangeFormaPago}>
-                            <option value="Opcion"></option>
-                            <option value="Efectivo">Efectivo</option>
-                            <option value="Tarjeta">Tarjeta</option>
-                        </select>
-                        <button className="btn">Comprar</button>
-                    </form>
+                        <input type="text" required placeholder="Localidad" name="localidad" value={localidad} onChange={handleChangeLocalidad} />
+                        <input type="text" placeholder="Dirección" name="direccion" value={direccion} onChange={handleChangeDireccion} />
+                        <input type="text" placeholder="Celular" name="tel" value={tel} onChange={handleChangeTel} />
+                        <button className="boton">Comprar</button>
+                        </form>
                 </div>)}
         </>
     )

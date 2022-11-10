@@ -1,0 +1,24 @@
+.cart{
+    min-height: 50vh;
+    h1{
+        font-size: 1.3rem;
+        color: $detalle;
+    }
+    h2{
+        font-size: 1.1rem;
+        text-transform: uppercase;
+    }
+    .boton{
+        width: 15rem;
+        text-align: center;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .vaciar{
+        background-color: rgb(167, 164, 164);
+    }
+    .botonera{
+        display: flex;
+        justify-content: center;
+    }
+}

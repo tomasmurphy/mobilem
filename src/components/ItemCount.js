@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const ItemCount = ({ stock, onAdd, initial }) => {
+const ItemCount = ({ stock, onAdd, initial, traerCount, traerFormaPago }) => {
     const [count, setCount] = useState(initial);
     useEffect(() => {
         setCount(initial);
@@ -16,24 +16,22 @@ const ItemCount = ({ stock, onAdd, initial }) => {
     const restar = () => {
         count > 1 && setCount(count - 1);
     };
-    const irAlCarrito = () => {
-        const irAlCarrito = document.getElementById('irAlCarrito');
-        const agregarAlCarrito = document.getElementById('agregarAlCarrito');
-
-        irAlCarrito.classList.remove('d-none')
-        agregarAlCarrito.classList.add('d-none')
-
+    traerCount(count)
+    var formaPago = ""
+    const handleChangeValue = () => {
+        var e = document.getElementById("select");
+        formaPago = e.value
+        traerFormaPago(formaPago)
     };
+
+
     return (
         <>
-            <div id='agregarAlCarrito'>
-                <button className='btn' onClick={restar}>-</button>
-                <button className='btn' onClick={sumar}>+</button>
-                <p>Cantidad: {count} </p>
-                <button className='btn' onClick={() => onAdd(count, irAlCarrito())}>Agregar al carrito</button>
-            </div>
-            <div id='irAlCarrito' className='d-none'>
-                <Link to={'/carrito'} className='btn'>Ir al carrito</Link>
+            <div count={count} id='agregarAlCarrito'>
+                <Link to={'/carrito'} className='boton' onClick={() => onAdd(count, handleChangeValue())}>Agregar al carrito</Link>
+                <button className='btnCant' onClick={restar}>-</button>
+                {count}
+                <button className='btnCant' onClick={sumar}>+</button>
             </div>
         </>
     );

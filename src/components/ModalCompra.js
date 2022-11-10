@@ -10,14 +10,16 @@ function ModalCompra({ cart, total, clearCart, handleId }) {
 
     return (
         <>
-            <button className='btn'  onClick={handleShow}>
+            <div className='boton'  onClick={handleShow}>
                 Comprar
-            </button>
+            </div>
             <Modal
                 show={show}
                 onHide={handleClose}
                 backdrop="static"
                 keyboard={false}
+                size= "md"
+                centered
             >
                 <Modal.Header closeButton>
                     <Modal.Title>Finalizar compra</Modal.Title>

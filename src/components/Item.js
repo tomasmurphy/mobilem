@@ -5,16 +5,16 @@ export const Item = (
   {
     id = "",
     titulo = '',
-    img1 = '',
+    imagenes = '',
     precio = 0,
   }
 
 ) => {
   const tituloId = titulo.replace(" ", "_");
   return (
-    <div className="card" key={id}>
+    <div className="" key={id}>
       <Link to={`/detalle/${id}#${tituloId}`} className='link'>
-        <img src={img1} alt={`Foto de ${titulo}`} className='img-fluid mx-0 px-0' />
+        <img src={imagenes[0]} alt={`Foto de ${titulo}`} className='img-fluid mx-0 px-0' />
         <h4 className='text-center mt-2'>{titulo}</h4>
         <p className='text-center'>${precio}</p>
       </Link>

@@ -30,7 +30,8 @@ const ItemListContainer = () => {
                         ...prod.data()
                     }
                 });
-                setItems(productos)
+                const productosOrdenados = [...productos].sort((a, b) => (a.precio > b.precio ? 1 : a.precio < b.precio ? -1 : 0))
+                setItems(productosOrdenados)
             })
             .catch((error) => {
                 console.log(error)
@@ -43,7 +44,7 @@ const ItemListContainer = () => {
  
     return (
         <>
-            {isLoading ? (<Loader></Loader>) : (<div className='item row'>
+            {isLoading ? (<Loader />) : (<div className='item row'>
                 <ItemList items={items} />
             </div>)}
         </>

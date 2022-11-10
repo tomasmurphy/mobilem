@@ -3,7 +3,7 @@ import Main from './components/Main';
 import NavMenu from './components/NavMenu';
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
-import { Footer } from './components/Footer';
+import { BannerPromo } from "./components/BannerPromo";
 
 const App = () => {
 
@@ -13,7 +13,7 @@ const App = () => {
                 <Nav />
                 <NavMenu />
                 <Main />
-                <Footer />
+                <BannerPromo />
             </BrowserRouter>
         </CartProvider>
     );

@@ -5,8 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 export default function Carousel({children, settings}) {
-  
-  
+    
   return (
     <Slider {...settings}>
       {children}

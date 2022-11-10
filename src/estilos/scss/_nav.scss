@@ -14,9 +14,20 @@ padding-bottom: .3rem;
 top: 0;
 border-bottom: 1px solid  rgb(190, 190, 190);
 }
+.navRedes{
+    width: 20vw;
+    display: flex;
+    @include desktop{
+        padding-left: 13vh;
+    }
+    i{
+        font-size: 1.2rem;
+        color: $detalle8;
+        margin-left: 1rem;
+      }
+}
 .navLogo{
-width: 90vw;
-padding-left: 10vw;
+width: 60vw;
 display: flex;
 
 }
@@ -25,11 +36,14 @@ img{
     margin: auto;
 }
 .navCart{
-    width:10vw;
+    width:20vw;
     margin: auto;
     display: flex;
     justify-content: center;
     text-decoration: none;
+    @include desktop{
+        padding-left: 15vh;
+    }
     i{
         font-size: 1.5rem;
         display: flex;
@@ -109,16 +123,16 @@ footer {
     text-justify: center;
     align-self: center;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     background-color:$fondo;
     padding-bottom: 1rem;
+    @include desktop {
+    justify-content: flex-end;
+    padding-bottom: 1rem;
     padding-right: 3rem;
+    }
   
-  i{
-    font-size: 1.2rem;
-    color: $detalle8;
-    margin: 1rem;
-  }
+  
   }
   

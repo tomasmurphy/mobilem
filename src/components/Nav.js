@@ -1,63 +1,35 @@
 import logo from '../img/LogoNuevo.png';
-import { Link, NavLink } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { CartWidget } from './CartWidget';
-import React, { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { dataBase } from '../firebaseConfig';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
 
 function Nav() {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    const collectionCategoria = collection(dataBase, 'Categorias');
-
-    getDocs(collectionCategoria)
-      .then((res) => {
-        const categorias = res.docs.map((cat) => {
-          return {
-            id: cat.id,
-            ...cat.data()
-          }
-        });
-        setCategories(categorias)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }, []);
-
 
   return (
-<nav >
-        <div className='navbarContainer row'>
-          <Link to={'/'} className='navLogo'>
-            <img
-              src={logo}
-              alt="Mobilem logo"
-              className='img-fluid'
-            />
-          </Link>
-        <Link to={'/carrito'} className="navCart"> <CartWidget /> </Link>
+    <nav >
+      <div className='navbarContainer row'>
+        <div className='navRedes'>
+          <a href="https://www.facebook.com/mobilem.online" rel="noopener noreferrer" target="_blank">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/mobilemarg/"
+            target="_blank"
+            rel="noopener noreferrer"
+          ><i class="bi bi-instagram"></i></a>
         </div>
-      </nav>
-    // <nav className="cajaNav navbar-dark navbar navbar-expand-md">
-    //   <div className="burgerTop container-fluid mt-3 mt-md-0">
-    //     <div className="bloqueLogo" id="1">
-    //       <Link to={'/'} className="sombra navbar-brand mx-auto">
-    //         <img src={logo} alt="logo de mobilem" className="img-fluid" />
-    //       </Link>
-    //     </div>
-    //     <ul className="navbar-nav">
-    //       <NavLink to={'/carrito'} className="btn"> <CartWidget /> </NavLink>
-    //       {categories.map((cat) => (
-    //         <NavLink key={cat.id} to={`categoria/${cat.categoria}`} className="btn categoria">
-    //           {cat.categoria}
-    //         </NavLink>))}
-    //     </ul>
-    //   </div>
-    // </nav>
+
+        <Link to={'/'} className='navLogo'>
+          <img
+            src={logo}
+            alt="Mobilem logo"
+            className='img-fluid'
+          />
+        </Link>
+        <Link to={'/carrito'} className="navCart"> <CartWidget /> </Link>
+
+      </div>
+    </nav>
+
   );
 }
 

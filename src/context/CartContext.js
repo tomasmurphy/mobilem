@@ -6,11 +6,11 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
-    const addToCart = (item, cantidad) => {
+    const addToCart = (item, cantidad, formaPago) => {
         if (isInCart(item.id)) {
-            sumarCantidad(item, cantidad);
+            sumarCantidad(item, cantidad, formaPago);
         } else {
-            setCart([...cart, { ...item, cantidad }])
+            setCart([...cart, { ...item, cantidad, formaPago }])
         }
     }
 

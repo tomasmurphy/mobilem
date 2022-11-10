@@ -11,7 +11,7 @@ export const ItemList = ({ items }) => {
                <Item
                   key={item.id}
                   id={item.id}
-                  img1={item.img1}
+                  imagenes={item.imagenes}
                   titulo={item.titulo}
                   stock={item.stock}
                   precio={item.precio} />
