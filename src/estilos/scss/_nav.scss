@@ -8,7 +8,7 @@ height: 3rem;
 background-color: $fondo;
 display: flex;
 width: 100vw;
-align-items: center;
+align-items: flex-end;
 margin-top: .5rem;
 padding-bottom: .3rem;
 top: 0;
@@ -37,7 +37,6 @@ img{
 }
 .navCart{
     width:20vw;
-    margin: auto;
     display: flex;
     justify-content: center;
     text-decoration: none;

@@ -4,6 +4,7 @@ import ItemCount from './ItemCount';
 import Carousel from './Carousel';
 import ModalCreditos from './ModalCreditos';
 import FormaPago from './FormaPago';
+import { Helmet } from 'react-helmet';
 
 export const ItemDetail = ({ itemDetail }) => {
   const [cantidad, setCantidad] = useState(0);
@@ -21,39 +22,43 @@ export const ItemDetail = ({ itemDetail }) => {
   const traerCount = (count) => {
     setCount(count)
   }
-  var formaPago = "";
-  let descripcion = "";
+  let formaPago = "";
+  let descripcion = `$${itemDetail.precio}`
+
   const traerFormaPago = (value) => {
     formaPago = value
-    descripcion = `$${itemDetail.precio}. ${document.getElementById("select").value}`
   };
 
   const URLdomain = window.location.origin;
   const metaImg = `${itemDetail.imagenes[0].replace("..", `${URLdomain}`)}`
   const URL = window.location.href;
-  console.log(URLdomain)
 
   return (
     <>
-      <meta property="og:type" content="article" />
-      <meta property="og:title" content={itemDetail.titulo} />
-      <meta
-        property="og:description"
-        content={descripcion}
-      />
-      <meta
-        property="og:url"
-        content={URL}
-      />
-      <meta
-        property="og:site_name"
-        content="Mobilem"
-      />
-      <meta
-        property="og:image"
-        content={metaImg}
-      />
-
+      <Helmet>
+        <meta itemProp="producto" property="og:type" content="article" />
+        <meta itemProp="title" property="og:title" content={itemDetail.titulo} />
+        <meta
+          itemProp="description"
+          property="og:description"
+          content={descripcion}
+        />
+        <meta
+          itemProp="url"
+          property="og:url"
+          content={URL}
+        />
+        <meta
+          itemProp="site_name"
+          property="og:site_name"
+          content="Mobilem"
+        />
+        <meta
+          itemProp='image'
+          property="og:image"
+          content={metaImg}
+        />
+      </Helmet>
       <div className='row'>
         <div className="card col-12 col-md-6 ps-md-5 pe-md-5 pe-3 ps-3 mt-3" key={itemDetail.id}>
 

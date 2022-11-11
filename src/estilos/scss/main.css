@@ -8452,7 +8452,7 @@ nav {
     background-color: white;
     display: flex;
     width: 100vw;
-    align-items: center;
+    align-items: flex-end;
     margin-top: .5rem;
     padding-bottom: .3rem;
     top: 0;
@@ -8475,7 +8475,6 @@ nav {
     margin: auto; }
   nav .navCart {
     width: 20vw;
-    margin: auto;
     display: flex;
     justify-content: center;
     text-decoration: none; }
@@ -8694,7 +8693,8 @@ h5, .h5 {
 .bannerPromo {
   height: auto;
   width: 100%;
-  margin-top: 3rem; }
+  margin-top: 2rem;
+  margin-top: 1rem; }
   .bannerPromo .row {
     align-items: center;
     text-align: center; }
