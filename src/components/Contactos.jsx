@@ -199,9 +199,10 @@ const Contactos = () => {
             </div>
           </Carousel>
         </div>
+        </section>
         <div className="container-fluid">
           <div className="row">
-            <div className="ps-2 col-12">
+            <div className="p-md-5 col-12">
               <h4>Sucursales</h4>
               <p>
                 Casa central, Polledo 45, Rafael Castillo / teléfono: 1175353509
@@ -221,7 +222,7 @@ const Contactos = () => {
               </p>
             </div>
           </div>
-          <div>
+          <div className="pe-md-5 ps-md-5">
             <iframe
               src="https://www.google.com/maps/d/embed?mid=17DaENuBW9v1ZbigMtk7FFA7zWBxI7II_&ehbc=2E312F"
               width=""
@@ -233,7 +234,7 @@ const Contactos = () => {
             ></iframe>
           </div>
         </div>
-      </section>
+      
     </>
   );
 };

@@ -8483,7 +8483,8 @@ nav {
         padding-left: 15vh; } }
     nav .navCart i {
       font-size: 1.5rem;
-      display: flex; }
+      display: flex;
+      margin-bottom: .3rem; }
     nav .navCart .nroCart {
       background-color: rgba(65, 180, 245, 0.6);
       border-radius: 50%;
@@ -8601,11 +8602,13 @@ footer {
   .detalle h1, .detalle .h1 {
     text-transform: uppercase;
     font-size: 1rem;
-    font-weight: 400; }
+    font-weight: 700; }
   .detalle h2, .detalle .h2 {
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    font-weight: 500; }
   .detalle h4, .detalle .h4 {
-    font-size: .8rem; }
+    font-size: .8rem;
+    font-weight: 500; }
   .detalle .btnCant {
     border: none;
     font-size: 1rem;
@@ -8678,9 +8681,13 @@ h5, .h5 {
   -moz-osx-font-smoothing: grayscale; }
 
 .pad {
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-right: 1.2rem;
+  padding-left: 1.2rem;
   border: none; }
+  @media screen and (min-width: 768px) {
+    .pad {
+      padding-right: 2.9rem;
+      padding-left: 2.9rem; } }
   .pad a {
     text-decoration: none; }
   .pad .card {

@@ -36,20 +36,22 @@ export const ItemDetail = ({ itemDetail }) => {
   return (
     <>
       <Helmet>
-        <meta itemProp="producto" property="og:type" content="article" />
-        <meta itemProp="title" property="og:title" content={itemDetail.titulo} />
+        <title>Detalle producto</title>
         <meta
-          itemProp="description"
+      name="description"
+      content={itemDetail.titulo}
+    />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={itemDetail.titulo} />
+        <meta
           property="og:description"
           content={descripcion}
         />
         <meta
-          itemProp="url"
           property="og:url"
           content={URL}
         />
         <meta
-          itemProp="site_name"
           property="og:site_name"
           content="Mobilem"
         />
@@ -73,16 +75,17 @@ export const ItemDetail = ({ itemDetail }) => {
             <h1>{itemDetail.titulo}</h1>
             <h2 >${itemDetail.precio}</h2>
           </div>
-          <p >{itemDetail.descripcion}</p>
-          <div>   <h4 >FORMA DE PAGO</h4>
+          <p  className='mt-3'>{itemDetail.descripcion}</p>
+          <div className='mt-3'>   <h4 >FORMA DE PAGO</h4>
             <FormaPago itemDetail={itemDetail} count={count} />
 
             <br />
             <i className="d-inline text-center text-md-end"><p>Envíos por la zona sin costo.</p>
               <p><ModalCreditos /> créditos personales</p> </i>
+              <hr />
+
           </div>
-          <hr />
-          <h4 className='text-center text-md-start mt-3'><ItemCount traerFormaPago={traerFormaPago} traerCount={traerCount} stock={itemDetail.stock} initial={(cantidadEnCart === undefined) ? 1 : cantidadEnCart} onAdd={onAdd} />
+                    <h4 className='text-center text-md-start mt-3'><ItemCount traerFormaPago={traerFormaPago} traerCount={traerCount} stock={itemDetail.stock} initial={(cantidadEnCart === undefined) ? 1 : cantidadEnCart} onAdd={onAdd} />
             {cantidad === 0 ? <p></p> : <p>Seleccionaste {cantidad} productos</p>}</h4>
 
         </div>

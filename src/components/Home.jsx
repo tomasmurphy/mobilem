@@ -5,6 +5,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { dataBase } from '../firebaseConfig';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet'; 
 
 const Home = () => {
     window.scrollTo(0, 0)
@@ -75,8 +76,35 @@ const Home = () => {
   // };
   return (
          <>
+         <Helmet>
+        <title>Tienda Mobilem</title>
+        <meta
+      name="description"
+      content="Tienda de articulos para el hogar"
+    />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Tienda Mobilem" />
+        <meta
+          property="og:description"
+          content="Tienda de articulos para el hogar"
+        />
+        <meta
+          property="og:url"
+          content="mobilem.com.ar"
+        />
+        <meta
+          property="og:site_name"
+          content="Mobilem"
+        />
+        <meta
+          itemProp='image'
+          property="og:image"
+          content=""
+        />
+      </Helmet>
          {isLoading ? (<Loader />) :
-         (<section className="item">
+         (
+            <section className="item">
          <div className="row">
                <div className='col-6 col-md-3 card'>
                <Item  
