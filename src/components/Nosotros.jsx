@@ -1,4 +1,5 @@
 import portada from '../img/portada.jpg';
+import Seo from './Head';
 
 function Nosotros() {
   const fecha = new Date();
@@ -6,6 +7,12 @@ function Nosotros() {
   
   return (
     <>
+    <Seo
+        title={"Nosotros"}
+        description={"Tienda de electrodomésticos y artículos para el hogar"}
+        image={`${window.location.origin}/static/media/portada.8f9e2e9e4243c9605ecc.jpg`}
+        pathSlug={window.location.href}
+      />
     <div className='row'>
     <img src={portada} alt="portada" className='p-md-4 p-2 col-12 col-md-6' />
     <p className='p-md-4 p-2 col-12 col-md-6'>

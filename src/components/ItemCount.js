@@ -28,10 +28,12 @@ const ItemCount = ({ stock, onAdd, initial, traerCount, traerFormaPago }) => {
     return (
         <>
             <div count={count} id='agregarAlCarrito'>
-                <Link to={'/carrito'} className='boton' onClick={() => onAdd(count, handleChangeValue())}>Agregar al carrito</Link>
+                <Link to={'/carrito'} className='boton me-md-2' onClick={() => onAdd(count, handleChangeValue())}>Agregar al carrito</Link>
+                <div>
                 <button className='btnCant' onClick={restar}>-</button>
                 {count}
                 <button className='btnCant' onClick={sumar}>+</button>
+                </div>
             </div>
         </>
     );

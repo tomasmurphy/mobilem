@@ -6,6 +6,7 @@ import muebles from "../img/muebles.jpg";
 import colchones from "../img/colchones.jpg";
 import { useState } from "react";
 import Loader from "./Loader";
+import Seo from "./Head";
 
 const Contactos = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -59,6 +60,12 @@ const Contactos = () => {
   };
   return (
     <>
+        <Seo
+        title={"Contacto"}
+        description={"Tienda de electrodomésticos y artículos para el hogar"}
+        image={`${window.location.origin}/static/media/portada.8f9e2e9e4243c9605ecc.jpg`}
+        pathSlug={window.location.href}
+      />
       {isLoading ? <Loader></Loader> : ""}
       <section className="pad">
         <div className="row">

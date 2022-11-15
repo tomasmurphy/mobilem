@@ -4,10 +4,12 @@ import NavMenu from './components/NavMenu';
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { BannerPromo } from "./components/BannerPromo";
+import { HelmetProvider } from 'react-helmet-async';
 
 const App = () => {
-
+    const helmetContext = {};
     return (
+        <HelmetProvider context={helmetContext}>
         <CartProvider>
             <BrowserRouter>
                 <Nav />
@@ -16,6 +18,7 @@ const App = () => {
                 <BannerPromo />
             </BrowserRouter>
         </CartProvider>
+        </HelmetProvider>
     );
 };
 

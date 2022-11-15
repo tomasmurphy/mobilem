@@ -8443,7 +8443,9 @@ textarea.form-control-lg {
     transform: rotate(720deg); } }
 
 .tachado {
-  text-decoration: line-through !important; }
+  text-decoration: line-through !important;
+  color: grey;
+  font-size: 1rem; }
 
 nav {
   position: fixed;
@@ -8633,6 +8635,17 @@ footer {
   .detalle .pModal {
     display: inline;
     cursor: pointer; }
+
+#agregarAlCarrito {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center; }
+  @media screen and (min-width: 768px) {
+    #agregarAlCarrito {
+      flex-direction: row; } }
+  #agregarAlCarrito a {
+    width: fit-content; }
 
 .pieContacto {
   background-color: rgba(65, 180, 245, 0.6);

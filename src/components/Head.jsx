@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import React from "react";
 
-const Seo = ({ title, description, pathSlug, image, keywords }) => {
+const Seo = ({ title, description, pathSlug, image}) => {
   const url = `${pathSlug}`;
   return (
     <Helmet
@@ -14,7 +14,7 @@ const Seo = ({ title, description, pathSlug, image, keywords }) => {
         },
         {
           property: "og:descripcion",
-          content: keywords,
+          content: description,
         },
         {
           property: "og:type",

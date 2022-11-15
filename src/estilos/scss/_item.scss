@@ -79,3 +79,16 @@ select:focus {
   cursor: pointer;
 }
 }
+#agregarAlCarrito{
+  display: flex;
+  flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    @include desktop{
+      flex-direction: row;
+      
+    }
+  a{
+    width: fit-content;
+  }
+}

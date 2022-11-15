@@ -4,6 +4,7 @@ import { ItemList } from './ItemList';
 import Loader from './Loader';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { dataBase } from '../firebaseConfig';
+import Seo from './Head';
 
 const ItemListContainer = () => {
     window.scrollTo(0, 0)
@@ -44,6 +45,12 @@ const ItemListContainer = () => {
  
     return (
         <>
+            <Seo
+        title={"Catálogo"}
+        description={"Tienda de electrodomésticos y artículos para el hogar"}
+        image={`${window.location.origin}/static/media/portada.8f9e2e9e4243c9605ecc.jpg`}
+        pathSlug={window.location.href}
+      />
             {isLoading ? (<Loader />) : (<div className='item row'>
                 <ItemList items={items} />
             </div>)}
