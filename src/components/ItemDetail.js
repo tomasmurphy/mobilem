@@ -4,7 +4,6 @@ import ItemCount from './ItemCount';
 import Carousel from './Carousel';
 import ModalCreditos from './ModalCreditos';
 import FormaPago from './FormaPago';
-import { Helmet } from 'react-helmet';
 import Seo from './Head';
 
 export const ItemDetail = ({ itemDetail }) => {
@@ -24,7 +23,6 @@ export const ItemDetail = ({ itemDetail }) => {
     setCount(count)
   }
   let formaPago = "";
-  let descripcion = `$${itemDetail.precio}`
 
   const traerFormaPago = (value) => {
     formaPago = value
@@ -42,37 +40,13 @@ export const ItemDetail = ({ itemDetail }) => {
 
   return (
     <>
-    <Seo title={"hola"} 
-    description={"chau"}
-    pathSlug={"keh"} 
+    <Seo title={itemDetail.titulo} 
+    description={itemDetail.precio}
+    image = {metaImg}
+    pathSlug={URL} 
     keywords={"llaves"}
-    
-    ></Seo>
-      {/* <Helmet>
-        <title>Detalle producto</title>
-        <meta
-      name="description"
-      content={itemDetail.titulo}
     />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={itemDetail.titulo} />
-        <meta
-          property="og:description"
-          content={descripcion}
-        />
-        <meta
-          property="og:url"
-          content={URL}
-        />
-        <meta
-          property="og:site_name"
-          content="Mobilem"
-        />
-        <meta
-          property="og:image"
-          content={metaImg}
-        />
-      </Helmet> */}
+        
       <div className='row'>
         <div className="card col-12 col-md-6 ps-md-5 pe-md-5 pe-3 ps-3 mt-3" key={itemDetail.id}>
 

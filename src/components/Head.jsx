@@ -1,26 +1,49 @@
-import { Helmet } from 'react-helmet';
-import React from 'react';
+import { Helmet } from "react-helmet";
+import React from "react";
 
-const Seo = ({ title, description, pathSlug, keywords }) => {
-  const url = `https://malikgabroun.com/${pathSlug}`
-	return (
-<Helmet htmlAttributes={{ lang: 'es' }} title={title} meta={[
+const Seo = ({ title, description, pathSlug, image, keywords }) => {
+  const url = `${pathSlug}`;
+  return (
+    <Helmet
+      htmlAttributes={{ lang: "es" }}
+      title={title}
+      meta={[
         {
-          name: 'description',
+          name: "description",
           content: description,
         },
         {
-          name: 'keywords',
+          property: "og:descripcion",
           content: keywords,
         },
-		]}
-    links={[
-     {
-          rel: 'canonical',
+        {
+          property: "og:type",
+          content: "article",
+        },
+        {
+          property: "og:title",
+          content: title,
+        },
+        {
+          property: "og:site_name",
+          content: "Mobilem",
+        },
+        {
+          property: "og:url",
+          content: url,
+        },
+        {
+          property: "og:image",
+          content: image,
+        },
+      ]}
+      links={[
+        {
+          rel: "canonical",
           href: url,
-      },
-    ]}
+        },
+      ]}
     />
- );
-}
+  );
+};
 export default Seo;
