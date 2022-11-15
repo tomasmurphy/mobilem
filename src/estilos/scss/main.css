@@ -8442,6 +8442,9 @@ textarea.form-control-lg {
     background: transparent;
     transform: rotate(720deg); } }
 
+.tachado {
+  text-decoration: line-through !important; }
+
 nav {
   position: fixed;
   z-index: 10000;

@@ -5,6 +5,7 @@ import Carousel from './Carousel';
 import ModalCreditos from './ModalCreditos';
 import FormaPago from './FormaPago';
 import { Helmet } from 'react-helmet';
+import Seo from './Head';
 
 export const ItemDetail = ({ itemDetail }) => {
   const [cantidad, setCantidad] = useState(0);
@@ -28,6 +29,12 @@ export const ItemDetail = ({ itemDetail }) => {
   const traerFormaPago = (value) => {
     formaPago = value
   };
+  
+  const traerContado = (value) => {
+    let contado = value
+    console.log(contado)
+    return contado
+  };
 
   const URLdomain = window.location.origin;
   const metaImg = `${itemDetail.imagenes[0].replace("..", `${URLdomain}`)}`
@@ -35,7 +42,13 @@ export const ItemDetail = ({ itemDetail }) => {
 
   return (
     <>
-      <Helmet>
+    <Seo title={"hola"} 
+    description={"chau"}
+    pathSlug={"keh"} 
+    keywords={"llaves"}
+    
+    ></Seo>
+      {/* <Helmet>
         <title>Detalle producto</title>
         <meta
       name="description"
@@ -56,11 +69,10 @@ export const ItemDetail = ({ itemDetail }) => {
           content="Mobilem"
         />
         <meta
-          itemProp='image'
           property="og:image"
           content={metaImg}
         />
-      </Helmet>
+      </Helmet> */}
       <div className='row'>
         <div className="card col-12 col-md-6 ps-md-5 pe-md-5 pe-3 ps-3 mt-3" key={itemDetail.id}>
 
@@ -73,11 +85,11 @@ export const ItemDetail = ({ itemDetail }) => {
         <div className="card datos mt-3 col-12 col-md-6">
           <div>
             <h1>{itemDetail.titulo}</h1>
-            <h2 >${itemDetail.precio}</h2>
+            <h2> <span className="tachado">${traerContado()}</span>${itemDetail.precio}</h2>
           </div>
           <p  className='mt-3'>{itemDetail.descripcion}</p>
           <div className='mt-3'>   <h4 >FORMA DE PAGO</h4>
-            <FormaPago itemDetail={itemDetail} count={count} />
+            <FormaPago traerContado={traerContado} itemDetail={itemDetail} count={count} />
 
             <br />
             <i className="d-inline text-center text-md-end"><p>Envíos por la zona sin costo.</p>

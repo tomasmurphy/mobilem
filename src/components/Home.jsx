@@ -97,7 +97,6 @@ const Home = () => {
           content="Mobilem"
         />
         <meta
-          itemProp='image'
           property="og:image"
           content=""
         />

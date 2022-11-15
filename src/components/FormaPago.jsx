@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-const FormaPago = ({ itemDetail, count }) => {
+const FormaPago = ({ itemDetail, count, traerContado }) => {
   const seisSinInteres = [1, 1.24,  .87 ]
   const tresSinInteres = [1.21, 1.45, .93 ]
   const coeficientes = (itemDetail.categoria === "sillones")? seisSinInteres : tresSinInteres
@@ -23,7 +23,7 @@ const FormaPago = ({ itemDetail, count }) => {
     itemDetail.precio * coeficientes[2] * count
   )}`;
   const noBancarias = "Tarjetas de crédito no bancarias consultar.";
-
+  traerContado(contado)
   return (
     <>
       <Form.Select id="select" aria-label="Default select example">
