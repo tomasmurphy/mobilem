@@ -12,7 +12,6 @@ export const ItemDetail = ({ itemDetail }) => {
   const onAdd = (cantidad) => {
     addToCart(itemDetail, cantidad, formaPago);
   };
-
   const cantidadEnCart = cantidadSeleccionada(itemDetail.id);
 
   const [count, setCount] = useState('');
@@ -20,31 +19,18 @@ export const ItemDetail = ({ itemDetail }) => {
   const traerCount = (count) => {
     setCount(count)
   }
-  let formaPago = "";
-
-  const traerFormaPago = (value) => {
-    formaPago = value
+  var formaPago = ""
+  const handleChangeValue = () => {
+    let e = document.getElementById("select");
+    formaPago = (e.value)
   };
 
-  const seisSinInteres = [1, 1.24, .87]
-  const tresSinInteres = [1.21, 1.45, .93]
-  const coeficientes = (itemDetail.categoria === "sillones") ? seisSinInteres : tresSinInteres
-
-
-  const doceValue = Math.round(itemDetail.precio * coeficientes[1] / 12) * count,
-  seisValue = Math.round(itemDetail.precio * coeficientes[0] / 6) * count,
-  tresValue = Math.round(itemDetail.precio / 3) * count,
-  personalValue = Math.round(itemDetail.precio / 4) * count,
-  contadoValue = Math.round(itemDetail.precio * coeficientes[2] * count);
-
-  const doce = `12 cuotas de $${doceValue} con tarjeta de credito bancaria `;
-  const seis = `6 cuotas de $${seisValue} con tarjeta de credito bancaria `;
-  const tres = `3 cuotas de $${tresValue} con tarjeta de credito bancaria `;
-  const personal = `4 cuotas de $${personalValue} con crédito personal `;
-  const contado = `Efectivo, débito, transferencia: $${contadoValue}`;
+  const doce = `12 cuotas de $${Math.round(itemDetail.formaPago.doceValue / 12 * count)} con tarjeta de credito bancaria `;
+  const seis = `6 cuotas de $${Math.round(itemDetail.formaPago.seisValue / 6 * count)} con tarjeta de credito bancaria `;
+  const tres = `3 cuotas de $${Math.round(itemDetail.formaPago.tresValue / 3 * count)} con tarjeta de credito bancaria `;
+  const personal = `4 cuotas de $${Math.round(itemDetail.formaPago.personalValue / 4 * count)} con crédito personal `;
+  const contado = `Efectivo, débito, transferencia: $${Math.round(itemDetail.formaPago.contadoValue * count)}`;
   const noBancarias = "Tarjetas de crédito no bancarias consultar.";
-
-
 
   return (
     <>
@@ -66,21 +52,21 @@ export const ItemDetail = ({ itemDetail }) => {
         <div className="card datos mt-3 col-12 col-md-6">
           <div>
             <h1>{itemDetail.titulo}</h1>
-            <h2> ${contadoValue} <span className="tachado">${itemDetail.precio*count}</span>  </h2>
+            <h2> ${itemDetail.precio} </h2>
           </div>
           <p className='mt-3'>{itemDetail.descripcion}</p>
           <div className='mt-3'>   <h4 >FORMA DE PAGO</h4>
-            <FormaPago formasPago={[doce, seis, tres, personal, contado, noBancarias]} />
+            <FormaPago
+              formasPago={[doce, seis, tres, personal, contado, noBancarias]}
+              traerFormaPago={handleChangeValue} />
 
             <br />
             <i className="d-inline text-center text-md-end"><p>Envíos por la zona sin costo.</p>
-              <p><ModalCreditos /> créditos personales</p> </i>
+              <p><ModalCreditos />{formaPago} créditos personales</p> </i>
             <hr />
-
           </div>
-          <h4 className='text-center text-md-start mt-3'><ItemCount traerFormaPago={traerFormaPago} traerCount={traerCount} stock={itemDetail.stock} initial={(cantidadEnCart === undefined) ? 1 : cantidadEnCart} onAdd={onAdd} />
+          <h4 className='text-center text-md-start mt-3'><ItemCount traerFormaPago={handleChangeValue} traerCount={traerCount} stock={itemDetail.stock} initial={(cantidadEnCart === undefined) ? 1 : cantidadEnCart} onAdd={onAdd} />
           </h4>
-
         </div>
       </div>
     </>)

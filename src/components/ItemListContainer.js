@@ -23,11 +23,27 @@ const ItemListContainer = () => {
 
         };
 
+
         getDocs(q)
             .then((res) => {
                 const productos = res.docs.map((prod) => {
+                    const seisSinInteres = [1, 1.24, .87]
+                    const tresSinInteres = [1.21, 1.45, .93]
+                    const coeficientes = (prod.data().categoria === "sillones") ? seisSinInteres : tresSinInteres
+                  
+                    const doceValue = Math.round(prod.data().precio * coeficientes[1]),
+                    seisValue = Math.round(prod.data().precio * coeficientes[0]),
+                    tresValue = Math.round(prod.data().precio),
+                    personalValue = Math.round(prod.data().precio),
+                    contadoValue = Math.round(prod.data().precio * coeficientes[2]);
+                  
                     return {
-                        id: prod.id,
+                        id: prod.id,   
+                        formaPago: {doceValue: doceValue,
+                            seisValue: seisValue, 
+                            tresValue:tresValue, 
+                            personalValue:personalValue, 
+                            contadoValue:contadoValue},
                         ...prod.data()
                     }
                 });
@@ -42,7 +58,7 @@ const ItemListContainer = () => {
             })
     },
         [nombreCategoria]);
- 
+
     return (
         <>
             <Seo

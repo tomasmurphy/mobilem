@@ -18,12 +18,13 @@ export const CartProvider = ({ children }) => {
         return cart.some((producto) => producto.id === id);
     }
 
-    const sumarCantidad = (item, cantidad) => {
+    const sumarCantidad = (item, cantidad, formaPago) => {
         const cartActualizado = cart.map((producto) => {
             if (producto.id === item.id) {
                 const productoActualizado = {
                     ...producto,
-                    cantidad: cantidad
+                    cantidad: cantidad,
+                    formaPago: formaPago
                 }
                 return productoActualizado
             } else {

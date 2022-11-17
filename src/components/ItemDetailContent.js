@@ -17,8 +17,22 @@ const ItemDetailContent = () => {
         const ref = doc(itemsCollection, idProducto);
         getDoc(ref)
             .then((res) => {
+                const seisSinInteres = [1, 1.24, .87]
+                    const tresSinInteres = [1.21, 1.45, .93]
+                    const coeficientes = (res.data().categoria === "sillones") ? seisSinInteres : tresSinInteres
+                  
+                    const doceValue = Math.round(res.data().precio * coeficientes[1]),
+                    seisValue = Math.round(res.data().precio * coeficientes[0]),
+                    tresValue = Math.round(res.data().precio),
+                    personalValue = Math.round(res.data().precio),
+                    contadoValue = Math.round(res.data().precio * coeficientes[2]);
                 setItem({
                     id: res.id,
+                    formaPago: {doceValue: doceValue,
+                        seisValue: seisValue, 
+                        tresValue:tresValue, 
+                        personalValue:personalValue, 
+                        contadoValue:contadoValue},
                     ...res.data()
                 });
                 setIsLoading(false)

@@ -234,8 +234,8 @@ const Contactos = () => {
               src="https://www.google.com/maps/d/embed?mid=17DaENuBW9v1ZbigMtk7FFA7zWBxI7II_&ehbc=2E312F"
               width=""
               height="500"
-              allowfullscreen
-              frameborder="0"
+              allowFullScreen
+              frameBorder="0"
               class="col-12 pb-3"
               title="mapa de sucursales"
             ></iframe>

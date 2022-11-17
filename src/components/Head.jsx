@@ -1,9 +1,10 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import React from "react";
 
 const Seo = ({ title, description, pathSlug, image}) => {
   const url = `${pathSlug}`;
   return (
+    <HelmetProvider>
     <Helmet
       htmlAttributes={{ lang: "es" }}
       title={title}
@@ -44,6 +45,7 @@ const Seo = ({ title, description, pathSlug, image}) => {
         },
       ]}
     />
+    </HelmetProvider>
   );
 };
 export default Seo;

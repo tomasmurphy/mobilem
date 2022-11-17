@@ -14,25 +14,22 @@ const ItemCount = ({ stock, onAdd, initial, traerCount, traerFormaPago }) => {
         count < tope && setCount(count + 1);
     };
     const restar = () => {
-        count > 1 && setCount(count - 1);
+        count > 1 && setCount(count - 1);  
+        
     };
+    
+    
+      
     traerCount(count)
-    var formaPago = ""
-    const handleChangeValue = () => {
-        var e = document.getElementById("select");
-        formaPago = e.value
-        traerFormaPago(formaPago)
-    };
-
 
     return (
         <>
             <div count={count} id='agregarAlCarrito'>
-                <Link to={'/carrito'} className='boton me-md-2' onClick={() => onAdd(count, handleChangeValue())}>Agregar al carrito</Link>
+                <Link to={'/carrito'} className='boton me-md-2' onClick={() => onAdd(count, traerFormaPago())}>Agregar al carrito</Link>
                 <div>
-                <button className='btnCant' onClick={restar}>-</button>
+                <button className='btnCant' onClick={ () => restar(count, traerFormaPago())}>-</button>
                 {count}
-                <button className='btnCant' onClick={sumar}>+</button>
+                <button className='btnCant' onClick={ () => sumar(count, traerFormaPago())}>+</button>
                 </div>
             </div>
         </>
